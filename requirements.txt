@@ -1,0 +1,11 @@
+altgraph==0.17.4
+numpy==1.26.0
+packaging==23.2
+pefile==2023.2.7
+pyinstaller==6.3.0
+pyinstaller-hooks-contrib==2023.12
+python-dateutil==2.8.2
+pytz==2023.3.post1
+pywin32-ctypes==0.2.2
+six==1.16.0
+tzdata==2023.3
