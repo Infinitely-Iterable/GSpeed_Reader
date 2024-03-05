@@ -1,0 +1,2 @@
+1. Submit button does not work - cannot active note
+2. Program is not reading the vault path from the config.json when reopening
