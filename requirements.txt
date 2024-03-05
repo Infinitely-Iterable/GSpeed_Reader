@@ -13,6 +13,7 @@ Babel==2.12.1
 backcall==0.2.0
 beautifulsoup4==4.12.2
 bleach==6.1.0
+bs4==0.0.2
 cachetools==5.3.0
 certifi==2023.11.17
 cffi==1.15.1
@@ -60,8 +61,12 @@ jsonschema-specifications==2023.11.2
 jupyter==1.0.0
 jupyter-console==6.6.3
 jupyter-events==0.9.0
+jupyter-highlight-selected-word==0.2.0
 jupyter-lsp==2.2.1
+jupyter-nbextensions-configurator==0.6.3
 jupyter_client==8.6.0
+jupyter_contrib_core==0.4.2
+jupyter_contrib_nbextensions==0.7.0
 jupyter_core==5.3.0
 jupyter_server==2.11.1
 jupyter_server_terminals==0.4.4
@@ -90,6 +95,7 @@ numpy==1.26.0
 oauthlib==3.2.2
 openpyxl==3.1.2
 opt-einsum==3.3.0
+ordered-set==4.1.0
 overrides==7.4.0
 packaging==23.2
 pandas==2.1.1
@@ -103,6 +109,7 @@ prometheus-client==0.16.0
 prompt-toolkit==3.0.41
 protobuf==4.23.1
 psutil==5.9.5
+psycopg2==2.9.9
 pure-eval==0.2.2
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
@@ -111,6 +118,7 @@ Pygments==2.15.1
 pyinstaller==6.3.0
 pyinstaller-hooks-contrib==2023.12
 pyparsing==3.1.1
+pypiwin32==223
 pyrsistent==0.19.3
 pyspnego==0.9.0
 python-dateutil==2.8.2
@@ -139,7 +147,6 @@ scipy==1.10.1
 Send2Trash==1.8.2
 SharePlum==0.5.1
 six==1.16.0
-sklearn==0.0.post5
 sniffio==1.3.0
 soupsieve==2.4.1
 source==1.2.0
@@ -155,14 +162,17 @@ terminado==0.17.1
 threadpoolctl==3.1.0
 tinycss2==1.2.1
 tornado==6.3.2
+touch==2020.12.3
 traitlets==5.9.0
+ttkthemes @ git+https://github.com/RedFantom/ttkthemes@56a7bdcb5c86b88aef637ffd60549efa1bf92839
 types-python-dateutil==2.8.19.14
 types-pytz==2023.3.1.1
 types-PyYAML==6.0.12.12
 typing_extensions==4.5.0
 tzdata==2023.3
 uri-template==1.2.0
-urllib3==2.1.0
+urllib3==1.26.0
+values==2020.12.3
 voila==0.5.5
 wcwidth==0.2.6
 webcolors==1.13
@@ -173,3 +183,4 @@ Werkzeug==2.3.4
 widgetsnbextension==4.0.9
 Win32Security==2.1.0
 wrapt==1.14.1
+zstandard==0.21.0
