@@ -14,27 +14,27 @@ words = []
 
 config_file = 'config.json'
 
-# Function to convert Markdown file to plain text
+# .md to plain text
 def markdown_to_text(note_path):
     # Read the Markdown file
     with open(note_path, 'r', encoding='utf-8') as file:
         markdown_content = file.read()
 
-    # Convert Markdown to HTML
+    # .md to HTML
     html_content = markdown.markdown(markdown_content)
 
-    # Use BeautifulSoup to extract text
+    # BeautifulSoup to extract text
     soup = BeautifulSoup(html_content, 'html.parser')
     text = soup.get_text()
 
     return text
 
-#save the selected vault path to a JSON file
+# save vault path to a JSON file
 def save_config(vault_path):
     with open(config_file, 'w') as f:
         json.dump({'vault_path': vault_path}, f)
 
-# load the vault path from JSON file
+# load vault path from JSON
 def load_config():
     try:
         with open(config_file) as f:
@@ -46,17 +46,16 @@ def load_config():
 # List all .md files in the Obsidian vault and create a mapping
 def list_obsidian_notes(vault_path):
     files = glob.glob(os.path.join(vault_path, '**/*.md'), recursive=True)
-    # Create a mapping of file names to their full paths
     note_mapping = {os.path.basename(file): file for file in files}
     return note_mapping
 
-# Update the dropdown menu from selected vault
+# Update the dropdown menu
 def update_notes_dropdown(vault_path):
     note_mapping = list_obsidian_notes(vault_path)
     note_selector['values'] = list(note_mapping.keys())
     if note_mapping:
-        note_selector.current(0)  # Select the first note by default
-        display_note_content(list(note_mapping.values())[0])   # Select the first note by default
+        note_selector.current(0)  # first note by default
+        display_note_content(list(note_mapping.values())[0])
 
 # Function to select a new Obsidian vault path
 def select_vault_path():
@@ -70,14 +69,14 @@ def select_vault_path():
     # with open(note_path, 'r', encoding='utf-8') as file:
         # return file.read()
     
-# Display the content of the selected note in the text area
+# Display selected note in text area
 def display_note_content(note_path):
     note_content = markdown_to_text(note_path)
-    input_text.delete('1.0', tk.END)  # Clear the current content
+    input_text.delete('1.0', tk.END)  # clear text area
     input_text.insert(tk.END, note_content)  # Insert the new content
 
 def clear_content():
-    input_text.delete('1.0', tk.END)  # Clear the current content
+    input_text.delete('1.0', tk.END)  # clear text area
 
 # Called when a note is selected from the dropdown
 def on_note_select(event):
