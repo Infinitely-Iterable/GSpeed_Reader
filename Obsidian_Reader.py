@@ -3,6 +3,8 @@ from tkinter import ttk, filedialog
 import os
 import glob
 import json
+import markdown
+from bs4 import BeautifulSoup
 
 current_index = 0
 is_running = False
@@ -11,6 +13,21 @@ dark_enabled = False
 words = []
 
 config_file = 'config.json'
+
+# Function to convert Markdown file to plain text
+def markdown_to_text(note_path):
+    # Read the Markdown file
+    with open(note_path, 'r', encoding='utf-8') as file:
+        markdown_content = file.read()
+
+    # Convert Markdown to HTML
+    html_content = markdown.markdown(markdown_content)
+
+    # Use BeautifulSoup to extract text
+    soup = BeautifulSoup(html_content, 'html.parser')
+    text = soup.get_text()
+
+    return text
 
 #save the selected vault path to a JSON file
 def save_config(vault_path):
@@ -49,13 +66,13 @@ def select_vault_path():
         update_notes_dropdown(path)
 
 # Read the selected note
-def read_selected_note(note_path):
-    with open(note_path, 'r', encoding='utf-8') as file:
-        return file.read()
+# def read_selected_note(note_path):
+    # with open(note_path, 'r', encoding='utf-8') as file:
+        # return file.read()
     
 # Display the content of the selected note in the text area
 def display_note_content(note_path):
-    note_content = read_selected_note(note_path)
+    note_content = markdown_to_text(note_path)
     input_text.delete('1.0', tk.END)  # Clear the current content
     input_text.insert(tk.END, note_content)  # Insert the new content
 
