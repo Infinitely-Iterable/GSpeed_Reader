@@ -1,7 +1,7 @@
 # GSpeed_Reader
 
 Run to install dependencies
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 
 Run to install:
 pyinstaller --onefile --noconsole  --icon=.\cropped_logo.ico Speed_Reader.py
