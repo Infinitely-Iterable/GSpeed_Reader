@@ -1,2 +1,3 @@
-1. Submit button does not work - cannot active note
+1. Submit button does not work - cannot activate note on some occasions (tied to isssue 3?)
 2. Program is not reading the vault path from the config.json when reopening
+3. Notes will not switch when selected in the dropdown on first launch after installing or booting up - not consistent
