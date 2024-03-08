@@ -123,11 +123,20 @@ root.title("Obsidian Speed Reader")
 
 #word display
 word_label = tk.Label(root, font=('Helvetica', 36))
-word_label.grid(row=0, column=0, columnspan=3, padx=20, pady=20, sticky='ew')
+word_label.grid(row=0, column=0, columnspan=3, padx=15, pady=20, sticky='ew')
 is_running = False
 
 input_text = tk.Text(root, height=10, width=50)
 input_text.grid(row=1, column=0, columnspan=3, pady=10, padx=10)
+initial_text = text=('''
+                |\_/|                  
+                | @ @     
+                |   <>              _  
+                |  _/\------____ ((| |))
+                |=[L]=          `--' |   
+            ____|_       ___|   |___.' 
+            /_/_____/____/_______|\n''')
+input_text.insert("1.0", initial_text)
 
 def submit_text():
     global words, current_index
