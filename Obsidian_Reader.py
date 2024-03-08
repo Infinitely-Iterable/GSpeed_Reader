@@ -29,6 +29,13 @@ def markdown_to_text(note_path):
 
     return text
 
+# Function to select a new Obsidian vault path
+def select_vault_path():
+    path = filedialog.askdirectory()
+    if path:
+        save_config(path)
+        update_notes_dropdown(path)
+
 # save vault path to a JSON file
 def save_config(vault_path):
     with open(config_file, 'w') as f:
@@ -57,12 +64,17 @@ def update_notes_dropdown(vault_path):
         note_selector.current(0)  # first note by default
         display_note_content(list(note_mapping.values())[0])
 
-# Function to select a new Obsidian vault path
-def select_vault_path():
-    path = filedialog.askdirectory()
-    if path:
-        save_config(path)
-        update_notes_dropdown(path)
+def on_keyrelease(event):
+    value = event.widget.get()
+    if value == '':
+        note_selector['values'] = note_selector['values']
+    else:
+        # Filter
+        data = []
+        for item in note_selector['values']:
+            if value.lower() in item.lower():
+                data.append(item)
+        note_selector['values'] = data
 
 # Read the selected note
 # def read_selected_note(note_path):
@@ -154,8 +166,9 @@ select_vault_button.grid(row=5, column=2, columnspan=1, padx=5, pady=2, sticky='
 clear_button = tk.Button(root, text="Clear", command=clear_content)
 clear_button.grid(row=2, column=1, columnspan=1, pady=5, padx=10, sticky='ew')
 
-note_selector = ttk.Combobox(root, state="readonly")
+note_selector = ttk.Combobox(root)
 note_selector.grid(row=4, column=0, columnspan=2, rowspan=2, padx=5, pady=1,sticky='ew')
+note_selector.bind('<KeyRelease>', on_keyrelease)
 note_selector.bind('<<ComboboxSelected>>', on_note_select)
 
 note_mapping = {}
