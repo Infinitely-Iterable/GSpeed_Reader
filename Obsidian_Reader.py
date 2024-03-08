@@ -103,11 +103,13 @@ def dark_mode_toggle():
         widget_fg = 'black'
         widget_bg = 'white'
         window_bg = 'white'
+        dark_mode_button.config(text="Dark Mode")
     else:
         dark_enabled = True
         widget_fg = 'white'
         widget_bg = 'gray30'
         window_bg = 'gray20'
+        dark_mode_button.config(text="Light Mode")
     update_colors()
 
 def display_words(words, index=0):
@@ -135,7 +137,7 @@ initial_text = text=('''
                 |  _/\------____ ((| |))
                 |=[L]=          `--' |   
             ____|_       ___|   |___.' 
-            /_/_____/____/_______|\n''')
+           /_/_____/____/_______|\n''')
 input_text.insert("1.0", initial_text)
 
 def submit_text():
@@ -195,6 +197,23 @@ speed_scale.grid(row=3, column=0, columnspan=3, padx=10, pady=10, sticky='ew')
 dark_mode_button = tk.Button(root, text="Dark Mode", command=dark_mode_toggle)
 dark_mode_button.grid(row=4, column=2, columnspan=1, padx=5, pady=3, sticky='ew')
 
+# set dark mode by default
+dark_enabled = True
+
+widget_fg = 'white'
+widget_bg = 'gray30'
+window_bg = 'gray20'
+
+word_label.config(fg=widget_fg, bg=widget_bg)
+input_text.config(fg=widget_fg, bg=widget_bg)
+submit_button.config(fg=widget_fg, bg=widget_bg)
+playButton.config(fg=widget_fg, bg=widget_bg)
+speed_scale.config(fg=widget_fg, bg=widget_bg)
+dark_mode_button.config(fg=widget_fg, bg=widget_bg, text="Light Mode")
+select_vault_button.config(fg=widget_fg, bg=widget_bg)
+clear_button.config(fg=widget_fg, bg=widget_bg)
+root.config(bg=window_bg)
+
 #config update --dark toggle
 def update_colors():
     global update_colors
@@ -207,7 +226,6 @@ def update_colors():
     select_vault_button.config(fg=widget_fg, bg=widget_bg)
     clear_button.config(fg=widget_fg, bg=widget_bg)
     root.config(bg=window_bg)
-    
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
