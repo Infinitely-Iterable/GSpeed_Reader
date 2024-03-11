@@ -67,7 +67,7 @@ def update_notes_dropdown(vault_path):
 def on_keyrelease(event):
     value = event.widget.get()
     if value == '':
-        note_selector['values'] = note_selector['values']
+        note_selector['values'] = list(note_mapping.keys())
     else:
         # Filter
         data = []
