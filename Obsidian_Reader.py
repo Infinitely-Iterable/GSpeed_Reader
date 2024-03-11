@@ -125,7 +125,7 @@ root.title("Obsidian Speed Reader")
 
 #word display
 word_label = tk.Label(root, font=('Helvetica', 36))
-word_label.grid(row=0, column=0, columnspan=3, padx=15, pady=20, sticky='ew')
+word_label.grid(row=0, column=0, columnspan=3, padx=15, pady=27, sticky='ew')
 is_running = False
 
 input_text = tk.Text(root, height=10, width=50)
@@ -230,4 +230,5 @@ def update_colors():
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
 root.columnconfigure(2, weight=1)
+root.geometry("625x500")
 root.mainloop()
