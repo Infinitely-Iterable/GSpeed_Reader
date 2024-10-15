@@ -137,12 +137,22 @@ root = tk.Tk()
 root.title("Obsidian Speed Reader")
 
 # word display (fixed size for largest font)
-word_label = tk.Label(root, font=("Helvetica", MAX_FONT_SIZE), wraplength=600, width=20, height=3)
-word_label.grid(row=0, column=0, columnspan=3, padx=15, pady=27, sticky="nsew")
+word_frame = tk.Frame(root, width=600, height=100, background="gray30")
+word_frame.grid(row=0, column=0, columnspan=3, padx=15, pady=27, sticky="nsew")
+word_frame.grid_propagate(False)  # Prevent the frame from resizing
+
+word_label = tk.Label(word_frame, font=("Helvetica", font_size), wraplength=600)
+word_label.place(relx=0.5, rely=0.5, anchor="center")
+
+root.grid_rowconfigure(0, minsize=100)  # Set a minimum size for the row
+root.grid_columnconfigure(0, minsize=200)  # Set a minimum size for the column
+root.grid_columnconfigure(1, minsize=200)  # Set a minimum size for the column
+root.grid_columnconfigure(2, minsize=200)  # Set a minimum size for the column
 
 # Function to update font size without changing label size
 def update_font_size():
     word_label.config(font=("Helvetica", font_size))
+    word_label.place(relx=0.5, rely=0.5, anchor="center")  # Ensure label stays centered
 
 # Text input area
 input_text = tk.Text(root, height=10, width=50)
@@ -267,6 +277,7 @@ root.config(bg=window_bg)
 # config update --dark toggle
 def update_colors():
     global update_colors
+    word_frame.config(bg=widget_bg)
     word_label.config(fg=widget_fg, bg=widget_bg)
     input_text.config(fg=widget_fg, bg=widget_bg)
     submit_button.config(fg=widget_fg, bg=widget_bg)

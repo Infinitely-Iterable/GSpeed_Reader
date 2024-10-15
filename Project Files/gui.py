@@ -11,11 +11,11 @@ class Window(ttk.Frame):
         
         # word display
         self.word_label = ttk.Label(master, font=('Helvetica', 38))
-        self.word_label.grid(row=0, column=0, columnspan=3, rowspan=2, padx=15, pady=27, sticky='ew')
+        self.word_label.grid(row=0, column=0, columnspan=3, rowspan=2, padx=15, sticky='ew')
 
         self.input_text = ttk.Entry(master)
         self.input_text.grid(row=2, column=0, columnspan=3, rowspan=2, pady=10, padx=10, ipady=20)
-        initial_text = '''
+        initial_text = r'''
                         |\_/|                  
                         | @ @     
                         |   <>              _  
