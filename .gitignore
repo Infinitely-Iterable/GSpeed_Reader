@@ -1,4 +1,5 @@
 build/
+coqui_tts_models/
 dist/
 venv/
 config.json
