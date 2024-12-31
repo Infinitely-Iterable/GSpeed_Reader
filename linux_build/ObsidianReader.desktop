@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Obsidian Reader
-Comment=Speed reading application for Obsidian notes
-Exec=/usr/local/bin/Obsidian_Reader
-Icon=/usr/share/icons/hicolor/256x256/apps/obsidianreader.png
-Terminal=false
-Categories=Utility;TextTools;

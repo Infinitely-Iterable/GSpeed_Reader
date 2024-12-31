@@ -1,6 +1,0 @@
-beautifulsoup4==4.12.2
-bs4==0.0.2
-markdown==3.4.3
-pyinstaller==6.3.0
-tkinter
-ttkthemes
