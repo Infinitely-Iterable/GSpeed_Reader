@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Obsidian Speed Reader
+Comment=Speed reading application for Obsidian notes and text
+Exec=/usr/local/bin/obsidian-reader
+Icon=text-editor
+Terminal=false
+Type=Application
+Categories=Utility;TextTools;
+Keywords=speed;read;obsidian;text;

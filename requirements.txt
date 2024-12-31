@@ -184,3 +184,4 @@ widgetsnbextension==4.0.9
 Win32Security==2.1.0
 wrapt==1.14.1
 zstandard==0.21.0
+feedparser==6.0.10
